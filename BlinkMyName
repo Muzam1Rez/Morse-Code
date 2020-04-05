@@ -1,0 +1,100 @@
+int LED = D7; // Instead of writing D0 over and over again, we'll write led1
+// You'll need to wire an LED to this one to see it blink.
+int unit = 500;
+
+void dot()
+{
+    digitalWrite(LED,HIGH);
+    delay(unit);
+    digitalWrite(LED,LOW);
+    delay(unit);
+}
+
+void dash()
+{
+    digitalWrite(LED,HIGH);
+    delay(unit*3);
+    digitalWrite(LED,LOW);
+    delay(unit);
+}
+
+void new_char()
+{
+    delay(unit*2);
+}
+
+void new_word()
+{
+    delay(unit*6);
+}
+
+
+void setup() {
+
+    // We are going to tell our device that D0 and D7 (which we named led1 and led2 respectively) are going to be output
+    // (That means that we will be sending voltage to them, rather than monitoring voltage that comes from them)
+
+    // It's important you do this here, inside the setup() function rather than outside it or in the loop function.
+
+    pinMode(LED, OUTPUT);
+
+}
+
+
+void loop()
+{
+    ///M
+    dash();
+    dash();
+    
+    new_char();
+    
+    ///U
+    dot();
+    dot();
+    dash();
+    
+    new_char();
+    
+    ///Z
+    dash();
+    dash();
+    dot();
+    dot();
+    
+    new_char();
+    
+    ///A
+    dot();
+    dash();
+    
+    new_char();
+    
+    ///M
+    dash();
+    dash();
+    
+    new_char();
+    
+    ///M
+    dash();
+    dash();
+    
+    new_char();
+    
+    ///I
+    dot();
+    dot();
+    
+    new_char();
+    
+    ///L
+    dot();
+    dash();
+    dot();
+    dot();
+    
+    new_word();
+    
+    
+}
